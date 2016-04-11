@@ -1,0 +1,12 @@
+{
+  "name": "OAIPTester",
+  "version": "1.0-SNAPSHOT",
+  "dependencies": {
+    "bootstrap": "3.3.6",
+    "font-awesome": "4.3.0",
+    "animate.css": "3.2.6",
+    "angular": "1.5.3",
+    "angular-ui-router": "0.2.18",
+    "angular-file-upload": "1.1.5"
+  }
+}

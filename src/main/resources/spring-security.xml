@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+             xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+                        http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.2.xsd">
+
+    <global-method-security secured-annotations="enabled"/>
+    <http auto-config="true" use-expressions="true">
+
+        <!-- access denied page -->
+        <access-denied-handler error-page="/" />
+        <intercept-url pattern="/" access="permitAll"/>
+        <intercept-url pattern="/registrations" access="permitAll"/>
+        <intercept-url pattern="/success" access="hasRole('USER')"/>
+        <intercept-url pattern="/profile" access="hasRole('USER')"/>
+        <!--<intercept-url pattern="/{id}" access="hasRole('USER')"/>-->
+        <intercept-url pattern="/friend" access="hasRole('USER')"/>
+        <!--<intercept-url pattern="/{id}/editProfile" access="hasRole('USER')"/>-->
+        <!--<intercept-url pattern="/{id}/edit" access="hasRole('USER')"/>-->
+        <!--<intercept-url pattern="/{id}/friend" access="hasRole('USER')"/>-->
+        <!--<intercept-url pattern="/{id}/sendmessage" access="hasRole('USER')"/>-->
+        <!--<intercept-url pattern="/{id}/msgunread" access="hasRole('USER')"/>-->
+        <!--<intercept-url pattern="/{id}/message" access="hasRole('USER')"/>-->
+        <!--<intercept-url pattern="/{id}/sendMessage" access="hasRole('USER')"/>-->
+        <!--<intercept-url pattern="/{id}/removeFriend/{idFriend}" access="hasRole('USER')"/>-->
+        <!--<intercept-url pattern="/{id}/addFriend/{idFriend}" access="hasRole('USER')"/>-->
+        <!--<intercept-url pattern="/{id}/friend/{friendId}" access="hasRole('USER')"/>-->
+        <!--<intercept-url pattern="/{id}/upload" access="hasRole('USER')"/>-->
+        <!--<intercept-url pattern="/{id}/searchUser" access="hasRole('USER')"/>-->
+        <!--<intercept-url pattern="/{id}/msgsent" access="hasRole('USER')"/>-->
+        <!--<intercept-url pattern="/{id}/message/{msgId}" access="hasRole('USER')"/>-->
+
+        <form-login
+                login-page="/"
+                authentication-failure-url="/?error"
+                default-target-url="/success"
+                always-use-default-target="true"/>
+
+        <logout invalidate-session="true"
+                logout-success-url="/"
+                delete-cookies="JSESSIONID, userInfo"/>
+
+    </http>
+
+    <authentication-manager>
+        <authentication-provider user-service-ref="customUserDetailService">
+        </authentication-provider>
+    </authentication-manager>
+
+</beans:beans>
