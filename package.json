@@ -1,10 +1,6 @@
 {
   "name": "Node.js",
   "version": "0.0.0",
-  "private": true,
-  "scripts": {
-    "start": "node ./bin/run.js"
-  },
   "dependencies": {
     "body-parser": "~1.13.2",
     "debug": "~2.2.0",

@@ -24,10 +24,18 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
             templateUrl : 'pages/contact.html'
         })
 
-        .state('sign', {
-            url : '/sign',
-            templateUrl : 'pages/sign.html',
+        .state('signin', {
+            url : '/signin',
+            templateUrl : 'pages/signin.html',
             controller : 'AutorizationController'
+        })
+        .state('signout', {
+            url : '/signout',
+            templateUrl : 'pages/signout.html'
+        })
+        .state('registration', {
+            url : '/registration',
+            templateUrl : 'pages/registration.html'
         })
 
         .state('contact.maps', {
