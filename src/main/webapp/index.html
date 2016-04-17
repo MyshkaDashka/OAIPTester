@@ -15,8 +15,7 @@
     <script src="libs/jquery/dist/jquery.min.js"></script>
     <script src="scripts/app.js"></script>
     <script src="scripts/app-routes.js"></script>
-    <script src="scripts/controller/authorization-controller.js"></script>
-    <script src="scripts/controller/user-controller.js"></script>
+    <script src="scripts/controller/home-controller.js"></script>
     <script src="scripts/resource/user-resource.js"></script>
 
 </head>
@@ -33,8 +32,8 @@
                 <li><a ui-sref="upload"><i class="fa fa-graduation-cap"></i> Тесты</a></li>
                 <li><a ui-sref="about"><i class="fa fa-shield"></i> О программе</a></li>
                 <li><a ui-sref="contact"><i class="fa fa-comment"></i> Обратная связь</a></li>
-                <li><a ui-sref="signin"><i class="fa fa-sign-in"></i> Войти</a></li>
-                <li><a ui-sref="signout"><i class="fa fa-sign-in"></i> Выйти</a></li>
+                <li ng-show="!user"><a ui-sref="signin"><i class="fa fa-sign-in"></i> Войти</a></li>
+                <li ng-show="user"><a href="j_spring_security_logout"><i class="fa fa-sign-in"></i> Выйти</a></li>
             </ul>
         </div>
     </nav>

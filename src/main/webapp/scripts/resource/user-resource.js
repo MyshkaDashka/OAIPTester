@@ -3,6 +3,11 @@ app.factory('User', ['$resource', function($resource) {
         getAll: {
             method: "GET",
             isArray: true
+        },
+        getCurrentUser: {
+            method: "GET",
+            isArray: false,
+            url: "/user/current"
         }
     })
 }]);

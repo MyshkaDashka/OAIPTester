@@ -7,7 +7,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
     // HOME STATES AND NESTED VIEWS ========================================
         .state('home', {
             url : '/',
-            templateUrl: 'pages/home.html'
+            templateUrl: 'pages/home.html',
+            controller: "HomeController"
         })
 
         // ABOUT PAGE AND MULTIPLE NAMED VIEWS =================================
