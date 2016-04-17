@@ -9,38 +9,21 @@
     <http auto-config="true" use-expressions="true">
 
         <!-- access denied page -->
-        <access-denied-handler error-page="/" />
+        <access-denied-handler error-page="/"/>
         <intercept-url pattern="/" access="permitAll"/>
-        <intercept-url pattern="/registrations" access="permitAll"/>
-        <intercept-url pattern="/success" access="hasRole('USER')"/>
-        <intercept-url pattern="/profile" access="hasRole('USER')"/>
-        <!--<intercept-url pattern="/{id}" access="hasRole('USER')"/>-->
-        <intercept-url pattern="/friend" access="hasRole('USER')"/>
-        <!--<intercept-url pattern="/{id}/editProfile" access="hasRole('USER')"/>-->
-        <!--<intercept-url pattern="/{id}/edit" access="hasRole('USER')"/>-->
-        <!--<intercept-url pattern="/{id}/friend" access="hasRole('USER')"/>-->
-        <!--<intercept-url pattern="/{id}/sendmessage" access="hasRole('USER')"/>-->
-        <!--<intercept-url pattern="/{id}/msgunread" access="hasRole('USER')"/>-->
-        <!--<intercept-url pattern="/{id}/message" access="hasRole('USER')"/>-->
-        <!--<intercept-url pattern="/{id}/sendMessage" access="hasRole('USER')"/>-->
-        <!--<intercept-url pattern="/{id}/removeFriend/{idFriend}" access="hasRole('USER')"/>-->
-        <!--<intercept-url pattern="/{id}/addFriend/{idFriend}" access="hasRole('USER')"/>-->
-        <!--<intercept-url pattern="/{id}/friend/{friendId}" access="hasRole('USER')"/>-->
-        <!--<intercept-url pattern="/{id}/upload" access="hasRole('USER')"/>-->
-        <!--<intercept-url pattern="/{id}/searchUser" access="hasRole('USER')"/>-->
-        <!--<intercept-url pattern="/{id}/msgsent" access="hasRole('USER')"/>-->
-        <!--<intercept-url pattern="/{id}/message/{msgId}" access="hasRole('USER')"/>-->
+        <intercept-url pattern="/user" method="GET" access="hasRole('admin')"/>
 
         <form-login
-                login-page="/"
-                authentication-failure-url="/?error"
-                default-target-url="/success"
+                login-page="/#/signin"
+                authentication-failure-url="/#/?error"
+                default-target-url="/#/success"
                 always-use-default-target="true"/>
 
         <logout invalidate-session="true"
-                logout-success-url="/"
+                logout-success-url="/#/?logout"
                 delete-cookies="JSESSIONID, userInfo"/>
 
+        <anonymous username="guest" granted-authority="guest"/>
     </http>
 
     <authentication-manager>

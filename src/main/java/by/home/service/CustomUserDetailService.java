@@ -40,7 +40,7 @@ public class CustomUserDetailService  implements UserDetailsService  {
         Set<GrantedAuthority> setAuths = new HashSet<GrantedAuthority>();
 
         // Build user's authorities
-        setAuths.add(new SimpleGrantedAuthority(user.getRole()));
+        setAuths.add(new SimpleGrantedAuthority(user.getRole().toString()));
 
         List<GrantedAuthority> Result = new ArrayList<GrantedAuthority>(setAuths);
 

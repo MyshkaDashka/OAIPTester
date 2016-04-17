@@ -3,6 +3,8 @@ package by.home.entity;
 /**
  * Created by Darya on 30.03.16.
  */
+import by.home.enums.Role;
+
 import javax.persistence.*;
 
 @Entity
@@ -11,24 +13,24 @@ public class User
 {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(nullable = false)
+    @Column(name = "id", unique = true, nullable = false)
     private Integer id;
 
-    @Column(nullable = false)
+    @Column(name = "login", nullable = false)
     private String login;
 
-    @Column(nullable = false)
+    @Column(name = "password", nullable = false)
     private String password;
 
-    @Column(nullable = false)
-    private String role;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "role", nullable = false)
+    private Role role;
 
 
     public User()
     {
 
     }
-
 
     public Integer getId() {
         return id;
@@ -54,11 +56,11 @@ public class User
         this.password = password;
     }
 
-    public String getRole() {
+    public Role getRole() {
         return role;
     }
 
-    public void setRole(String role) {
+    public void setRole(Role role) {
         this.role = role;
     }
 

@@ -1,16 +1,13 @@
-var routerApp = angular.module('routerApp',
-    [ 'ui.router', 'angularFileUpload' ]);
+app.config(function($stateProvider, $urlRouterProvider) {
 
-routerApp.config(function($stateProvider, $urlRouterProvider) {
-
-    $urlRouterProvider.otherwise('/home');
+    $urlRouterProvider.otherwise('/');
 
     $stateProvider
 
     // HOME STATES AND NESTED VIEWS ========================================
         .state('home', {
-            url : '/home',
-            templateUrl : 'pages/home.html'
+            url : '/',
+            templateUrl: 'pages/home.html'
         })
 
         // ABOUT PAGE AND MULTIPLE NAMED VIEWS =================================
@@ -26,8 +23,7 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
 
         .state('signin', {
             url : '/signin',
-            templateUrl : 'pages/signin.html',
-            controller : 'AutorizationController'
+            templateUrl : 'pages/signin.html'
         })
         .state('signout', {
             url : '/signout',
@@ -37,16 +33,5 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
             url : '/registration',
             templateUrl : 'pages/registration.html'
         })
-
-        .state('contact.maps', {
-            url : '/maps',
-            templateUrl : 'pages/maps.html'
-        })
-
-        .state('upload', {
-            url : '/upload',
-            templateUrl : 'pages/upload.html',
-            controller : 'AppController'
-        });
 
 });
