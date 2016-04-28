@@ -2,9 +2,7 @@ package by.home.dto;
 
 import by.home.enums.Role;
 
-/**
- * Created by alexander on 17.04.16.
- */
+
 public class UserDTO {
 
     private String login;

@@ -9,8 +9,7 @@ import javax.persistence.*;
 
 @Entity
 
-public class User
-{
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", unique = true, nullable = false)
@@ -26,9 +25,16 @@ public class User
     @Column(name = "role", nullable = false)
     private Role role;
 
+    @OneToOne(mappedBy = "user")
+    private Student student;
 
-    public User()
-    {
+    @OneToOne(mappedBy = "user")
+    private Administrator administrator;
+
+    @OneToOne(mappedBy = "user")
+    private Teacher teacher;
+
+    public User(){
 
     }
 

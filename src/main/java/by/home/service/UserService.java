@@ -23,6 +23,7 @@ public class UserService {
         List<User> users = userRepository.findAll();
         List<UserDTO> userDTOs = new ArrayList<>();
         users.stream().forEach(u -> userDTOs.add(new UserDTO(u.getLogin(), u.getRole())));
+
         return userDTOs;
     }
 
