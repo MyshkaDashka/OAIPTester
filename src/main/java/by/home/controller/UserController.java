@@ -1,6 +1,8 @@
 package by.home.controller;
 
 import by.home.dto.UserDTO;
+import by.home.entity.Student;
+import by.home.service.IUserService;
 import by.home.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,7 +21,7 @@ import java.util.Objects;
 public class UserController {
 
     @Autowired
-    private UserService userService;
+    private IUserService userService;
 
     @RequestMapping(method = RequestMethod.GET)
     public List<UserDTO> getAll() {
@@ -34,4 +36,14 @@ public class UserController {
         }
         return user;
     }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/current")
+    public UserDTO getUserInformation(Principal principal) {
+        UserDTO user = null;
+        if (Objects.nonNull(principal)) {
+            user = userService.getUserInformation(principal.getName());
+        }
+        return user;
+    }
+
 }

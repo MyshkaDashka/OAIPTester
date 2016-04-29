@@ -6,6 +6,7 @@ import by.home.enums.Role;
 public class UserDTO {
 
     private String login;
+
     private Role role;
 
     public UserDTO() {
