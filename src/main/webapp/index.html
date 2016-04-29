@@ -28,7 +28,7 @@
             </div>
 
             <ul class="nav navbar-nav navbar-right">
-                <li><a ui-sref="home"><i class="fa fa-home"></i> Профиль</a></li>
+                <li ng-show="user"><a ui-sref="profile"><i class="fa fa-home"></i> Профиль</a></li>
                 <li><a ui-sref="upload"><i class="fa fa-graduation-cap"></i> Тесты</a></li>
                 <li><a ui-sref="about"><i class="fa fa-shield"></i> О программе</a></li>
                 <li><a ui-sref="contact"><i class="fa fa-comment"></i> Обратная связь</a></li>

@@ -37,7 +37,7 @@ public class UserController {
         return user;
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "/current")
+    @RequestMapping(method = RequestMethod.GET, value = "/profile")
     public UserDTO getUserInformation(Principal principal) {
         UserDTO user = null;
         if (Objects.nonNull(principal)) {

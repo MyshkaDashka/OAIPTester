@@ -16,5 +16,9 @@ app.controller('HomeController', ['$scope', 'User', '$rootScope', function ($sco
         console.log(data);
     }, function (error) {
         console.log(error);
+    });
+
+    User.getUserInformation(function(data){
+        $rootScope.user = data;
     })
 }]);

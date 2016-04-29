@@ -11,6 +11,12 @@ app.config(function($stateProvider, $urlRouterProvider) {
             controller: "HomeController"
         })
 
+        .state('profile', {
+            url : '/profile',
+            templateUrl: 'pages/profile.html',
+            controller: "HomeController"
+        })
+
         // ABOUT PAGE AND MULTIPLE NAMED VIEWS =================================
         .state('about', {
             url : '/about',

@@ -8,6 +8,11 @@ app.factory('User', ['$resource', function($resource) {
             method: "GET",
             isArray: false,
             url: "/user/current"
+        },
+        getUserInformation: {
+            method: "GET",
+            isArray: false,
+            url: "/user/profile"
         }
     })
 }]);

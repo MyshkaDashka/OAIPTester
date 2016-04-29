@@ -61,17 +61,17 @@ public class UserService implements IUserService {
         if (Objects.nonNull(user)) {
             switch (user.getRole()) {
                 case student:
-                    Student student = studentRepository.findByUserName(login);
+                    Student student = studentRepository.findByUserLogin(login);
                     userDTO = new StudentDTO(student.getName(),student.getLastName(), student.getFatherName(),
                             student.getGroup(),student.getEmail(),student.getPhoneNumber());
                     break;
                 case teacher:
-                    Teacher teacher = teacherRepository.findByUserName(login);
+                    Teacher teacher = teacherRepository.findByUserLogin(login);
                     userDTO = new TeacherDTO(teacher.getName(),teacher.getLastName(),teacher.getFatherName(),
                             teacher.getCabinet(),teacher.getEmail(),teacher.getPhoneNumber(),teacher.getPosition());
                     break;
                 case admin:
-                    Administrator administrator = administratorRepository.findByUserName(login);
+                    Administrator administrator = administratorRepository.findByUserLogin(login);
                     userDTO = new AdministratorDTO(administrator.getName(),administrator.getLastName(),administrator.getFatherName(),
                             administrator.getCabinet(),administrator.getEmail(),administrator.getPhoneNumber());
                     break;
