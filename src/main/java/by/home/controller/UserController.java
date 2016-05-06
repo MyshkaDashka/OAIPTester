@@ -1,9 +1,7 @@
 package by.home.controller;
 
 import by.home.dto.UserDTO;
-import by.home.entity.Student;
-import by.home.service.IUserService;
-import by.home.service.UserService;
+import by.home.service.user.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;

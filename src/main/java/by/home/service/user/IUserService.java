@@ -1,4 +1,4 @@
-package by.home.service;
+package by.home.service.user;
 
 import by.home.dto.UserDTO;
 import by.home.entity.Student;

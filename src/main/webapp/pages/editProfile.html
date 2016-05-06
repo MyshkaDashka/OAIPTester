@@ -3,7 +3,7 @@
         <div class="col-xs-9 col-sm-9 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title ">Профиль пользователя </h3>
+                    <h3 class="panel-title ">Редактирование профиля </h3>
                 </div>
                 <div class="panel-body">
                     <div class="row">
@@ -12,52 +12,49 @@
                                 <tbody>
                                 <tr>
                                     <td> Фамилия</td>
-                                    <td>{{ user.lastName }}</td>
+                                    <td>
+                                        <input type="text" class="form-control" value="{{ user.lastName }}">
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>Имя</td>
-                                    <td>{{ user.name }}</td>
+                                    <td>
+                                        <input type="text" class="form-control" value="{{ user.name }}"></td>
                                 </tr>
                                 <tr>
                                     <td>Отчество</td>
-                                    <td>{{ user.fatherName }}</td>
+                                    <td>
+                                        <input type="text" class="form-control" value="{{ user.fatherName }}"></td>
                                 </tr>
                                 <tr ng-if="user.role == 'student'">
                                     <td>Группа</td>
-                                    <td>{{ user.group }}</td>
+                                    <td><input type="text" class="form-control" value="{{ user.group }}"></td>
                                 </tr>
                                 <tr ng-if="user.role == 'teacher' || user.role == 'admin'">
                                     <td>Кабинет</td>
-                                    <td>{{ user.cabinet }}</td>
-                                </tr>
-                                <tr>
-                                    <td>Email</td>
-                                    <td><a href="mailto:{{ user.email }}">{{ user.email }}</a></td>
-                                </tr>
-                                <td>Номер телефона</td>
-                                <td>{{ user.phoneNumber }}</td>
+                                    <td><input type="text" class="form-control" value="{{ user.cabinet }}"></td>
                                 </tr>
                                 <tr ng-if="user.role == 'teacher'">
                                     <td>Должность</td>
-                                    <td>{{ user.position }}</td>
+                                    <td><input type="text" class="form-control" value="{{ user.position }}"></td>
+                                </tr>
+                                <tr>
+                                    <td>Email</td>
+                                    <td><input type="text" class="form-control" value="{{ user.email }}"></td>
+                                </tr>
+                                <td>Номер телефона</td>
+                                <td><input type="text" class="form-control" value="{{ user.phoneNumber }}"></td>
                                 </tr>
                                 </tbody>
                             </table>
-
                         </div>
                     </div>
                 </div>
                 <div class="panel-footer">
-                    <a ui-sref="executedTests"data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="fa fa-list"
-                                                                                             aria-hidden="true"></i>
-                        Пройденные тесты</a>
-                        <span class="pull-right">
-                            <a ui-sref="edit" data-original-title="Edit this user" data-toggle="tooltip" type="button"
-                               class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i> Редактировать
-                                профиль</a>
-                        </span>
+                    <div class="text-right ">
+                        <a href="#/profile" class="btn btn-primary btn-sm" role="button">Сохранить</a>
+                        <a href="#/profile" class="btn btn-default btn-sm" role="button">Отмена</a></div>
                 </div>
-
             </div>
         </div>
     </div>

@@ -16,11 +16,12 @@
     <script src="scripts/app.js"></script>
     <script src="scripts/app-routes.js"></script>
     <script src="scripts/controller/home-controller.js"></script>
+    <script src="scripts/controller/main-controller.js"></script>
     <script src="scripts/resource/user-resource.js"></script>
 
 </head>
 <body ng-app="app">
-<header>
+<header ng-controller="MainController">
     <nav class="navbar navbar-default">
         <div class="container">
             <div class="navbar-header titleName">
@@ -28,8 +29,9 @@
             </div>
 
             <ul class="nav navbar-nav navbar-right">
+                <li><a ui-sref="tests"><i class="fa fa-graduation-cap"></i> Тесты</a></li>
                 <li ng-show="user"><a ui-sref="profile"><i class="fa fa-home"></i> Профиль</a></li>
-                <li><a ui-sref="upload"><i class="fa fa-graduation-cap"></i> Тесты</a></li>
+
                 <li><a ui-sref="about"><i class="fa fa-shield"></i> О программе</a></li>
                 <li><a ui-sref="contact"><i class="fa fa-comment"></i> Обратная связь</a></li>
                 <li ng-show="!user"><a ui-sref="signin"><i class="fa fa-sign-in"></i> Войти</a></li>

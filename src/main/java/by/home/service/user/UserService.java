@@ -1,15 +1,15 @@
-package by.home.service;
+package by.home.service.user;
 
 import by.home.dto.AdministratorDTO;
 import by.home.dto.StudentDTO;
 import by.home.dto.TeacherDTO;
 import by.home.dto.UserDTO;
 import by.home.entity.*;
-import by.home.enums.Role;
 import by.home.repository.AdministratorRepository;
 import by.home.repository.StudentRepository;
 import by.home.repository.TeacherRepository;
 import by.home.repository.UserRepository;
+import by.home.service.user.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -40,7 +40,6 @@ public class UserService implements IUserService {
         List<User> users = userRepository.findAll();
         List<UserDTO> userDTOs = new ArrayList<>();
         users.stream().forEach(u -> userDTOs.add(new UserDTO(u.getLogin(), u.getRole())));
-
         return userDTOs;
     }
 
