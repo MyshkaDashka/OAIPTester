@@ -4,6 +4,7 @@ app.factory('User', ['$resource', function($resource) {
             method: "GET",
             isArray: true
         },
+
         getUserInformation: {
             method: "GET",
             isArray: false,
