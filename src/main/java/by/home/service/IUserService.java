@@ -12,7 +12,5 @@ public interface IUserService {
 
     public List<UserDTO> getAll();
 
-    public UserDTO getUser(String login);
-
     public UserDTO getUserInformation(String login);
 }

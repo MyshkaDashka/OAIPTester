@@ -28,15 +28,6 @@ public class UserController {
         return userService.getAll();
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "/current")
-    public UserDTO getCurrent(Principal principal) {
-        UserDTO user = null;
-        if (Objects.nonNull(principal)) {
-            user = userService.getUser(principal.getName());
-        }
-        return user;
-    }
-
     @RequestMapping(method = RequestMethod.GET, value = "/profile")
     public UserDTO getUserInformation(Principal principal) {
         UserDTO user = null;

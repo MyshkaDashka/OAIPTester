@@ -5,6 +5,7 @@ import by.home.dto.StudentDTO;
 import by.home.dto.TeacherDTO;
 import by.home.dto.UserDTO;
 import by.home.entity.*;
+import by.home.enums.Role;
 import by.home.repository.AdministratorRepository;
 import by.home.repository.StudentRepository;
 import by.home.repository.TeacherRepository;
@@ -43,18 +44,6 @@ public class UserService implements IUserService {
         return userDTOs;
     }
 
-    public UserDTO getUser(String login) {
-        UserDTO userDTO = null;
-        User user = userRepository.findByLogin(login);
-        if (Objects.nonNull(user)) {
-            userDTO = new UserDTO();
-            userDTO.setLogin(user.getLogin());
-            userDTO.setRole(user.getRole());
-        }
-        return userDTO;
-    }
-
-
     public UserDTO getUserInformation(String login) {
         UserDTO userDTO = null;
         User user = userRepository.findByLogin(login);
@@ -78,6 +67,8 @@ public class UserService implements IUserService {
                 default:
                     break;
             }
+            userDTO.setLogin(login);
+            userDTO.setRole(user.getRole());
         }
         return userDTO;
 

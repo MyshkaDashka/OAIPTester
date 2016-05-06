@@ -1,6 +1,6 @@
 app.controller('HomeController', ['$scope', 'User', '$rootScope', function ($scope, User, $rootScope) {
 
-    User.getCurrentUser(function (data) {
+    User.getUserInformation(function (data) {
         if (data && data.login) {
             $rootScope.user = data;
         } else {
@@ -17,8 +17,4 @@ app.controller('HomeController', ['$scope', 'User', '$rootScope', function ($sco
     }, function (error) {
         console.log(error);
     });
-
-    User.getUserInformation(function(data){
-        $rootScope.user = data;
-    })
 }]);

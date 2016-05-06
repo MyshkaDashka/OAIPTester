@@ -1,2 +1,64 @@
-{{ user ? ', ' + user.login : '' }}
-{{ user ? ', ' + user.name : '' }}
+<div class="container">
+    <div class="row">
+        <div class="col-xs-9 col-sm-9 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title ">Профиль пользователя </h3>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class=" col-md-9 col-lg-9 ">
+                            <table class="table table-user-information">
+                                <tbody>
+                                <tr>
+                                    <td> Фамилия</td>
+                                    <td>{{ user.lastName }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Имя</td>
+                                    <td>{{ user.name }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Отчество</td>
+                                    <td>{{ user.fatherName }}</td>
+                                </tr>
+                                <tr ng-if="user.role == 'student'">
+                                    <td>Группа</td>
+                                    <td>{{ user.group }}</td>
+                                </tr>
+                                <tr ng-if="user.role == 'teacher' || user.role == 'admin'">
+                                    <td>Кабинет</td>
+                                    <td>{{ user.cabinet }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Email</td>
+                                    <td><a href="mailto:{{ user.email }}">{{ user.email }}</a></td>
+                                </tr>
+                                    <td>Номер телефона</td>
+                                    <td>{{ user.phoneNumber }}</td>
+                                </tr>
+                                <tr ng-if="user.role == 'teacher'">
+                                    <td>Должность</td>
+                                    <td>{{ user.position }}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <a data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="fa fa-list"
+                                                                                             aria-hidden="true"></i>
+                        Пройденные тесты</a>
+                        <span class="pull-right">
+                            <a href="edit.html" data-original-title="Edit this user" data-toggle="tooltip" type="button"
+                               class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i> Редактировать
+                                профиль</a>
+                        </span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
