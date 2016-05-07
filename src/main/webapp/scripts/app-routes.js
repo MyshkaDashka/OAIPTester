@@ -4,7 +4,6 @@ app.config(function ($stateProvider, $urlRouterProvider) {
 
     $stateProvider
 
-    // HOME STATES AND NESTED VIEWS ========================================
         .state('home', {
             url: '/',
             templateUrl: 'pages/home.html',
@@ -23,8 +22,9 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         })
 
         .state('contact', {
-            url: '/contact',
-            templateUrl: 'pages/contact.html'
+            url: '/user/admins',
+            templateUrl: 'pages/contact.html',
+            controller: 'HomeController'
         })
 
         .state('signin', {
@@ -37,7 +37,8 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         })
         .state('registration', {
             url: '/registration',
-            templateUrl: 'pages/registration.html'
+            templateUrl: 'pages/registration.html',
+            controller: 'AddUserController'
         })
 
         .state('edit', {
@@ -46,7 +47,8 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         })
         .state('tests', {
             url: '/tests',
-            templateUrl: 'pages/tests.html'
+            templateUrl: 'pages/tests.html',
+            controller: "TestController"
         })
         .state('executedTests', {
             url: '/executedTests',

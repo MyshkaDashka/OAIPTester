@@ -15,12 +15,12 @@
                 <th>Кабинет</th>
                 <th>Написать</th>
             </tr>
-            <tr>
-                <td>Кожемятько</td>
-                <td>Александр</td>
-                <td>Владимирович</td>
-                <td>514а</td>
-                <td><a href="mailto:admin@test.com">admin@test.com</a></td>
+            <tr data-ng-repeat="admin in admins">
+                <td>{{ admin.lastName }}</td>
+                <td>{{ admin.name }}</td>
+                <td>{{ admin.fatherName }}</td>
+                <td>{{ admin.cabinet }}</td>
+                <td><a href="mailto:{{ admin.email }}">{{ admin.email }}</a></td>
             </tr>
         </table>
     </div>

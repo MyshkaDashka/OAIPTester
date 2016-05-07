@@ -1,15 +1,17 @@
 <div class="container">
-    <h2><p ng-show="!user"><a ui-sref="signin">Для прохождения теста небходимо авторизоваться в системе</a></p></h2>
+    <h2><p ng-show="!user"><a ui-sref="signin">Для прохождения теста небходимо Войти или зарегистрироваться</a></p></h2>
     <div class="panel panel-default">
         <div class="panel-heading">Тесты</div>
         <table class="table">
             <tr>
                 <th>Название теста</th>
                 <th>Дата создания</th>
+                <th>Дата обновления</th>
             </tr>
-            <tr>
-                <td>Операторы</td>
-                <td>06.05.2016</td>
+            <tr data-ng-repeat="test in tests">
+                <td>{{ test.title }}</td>
+                <td>{{ test.createDate }}</td>
+                <td>{{ test.updateDate }}</td>
             </tr>
         </table>
     </div>

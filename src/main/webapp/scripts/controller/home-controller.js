@@ -17,4 +17,10 @@ app.controller('HomeController', ['$scope', 'User', '$rootScope', function ($sco
     }, function (error) {
         console.log(error);
     });
+
+   User.getAllAdministrators(function(data){
+       $rootScope.admins = data;
+   }, function (error) {
+       delete $rootScope.admins;
+   });
 }]);

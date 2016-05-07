@@ -1,9 +1,6 @@
 package by.home.service.user;
 
-import by.home.dto.AdministratorDTO;
-import by.home.dto.StudentDTO;
-import by.home.dto.TeacherDTO;
-import by.home.dto.UserDTO;
+import by.home.dto.*;
 import by.home.entity.*;
 import by.home.repository.AdministratorRepository;
 import by.home.repository.StudentRepository;
@@ -50,18 +47,19 @@ public class UserService implements IUserService {
             switch (user.getRole()) {
                 case student:
                     Student student = studentRepository.findByUserLogin(login);
-                    userDTO = new StudentDTO(student.getName(),student.getLastName(), student.getFatherName(),
-                            student.getGroup(),student.getEmail(),student.getPhoneNumber());
+                    userDTO = new StudentDTO(student.getName(), student.getLastName(), student.getFatherName(),
+                            student.getGroup(), student.getEmail(), student.getPhoneNumber());
                     break;
                 case teacher:
                     Teacher teacher = teacherRepository.findByUserLogin(login);
-                    userDTO = new TeacherDTO(teacher.getName(),teacher.getLastName(),teacher.getFatherName(),
-                            teacher.getCabinet(),teacher.getEmail(),teacher.getPhoneNumber(),teacher.getPosition());
+                    userDTO = new TeacherDTO(teacher.getName(), teacher.getLastName(), teacher.getFatherName(),
+                            teacher.getCabinet(), teacher.getEmail(), teacher.getPhoneNumber(), teacher.getPosition());
                     break;
                 case admin:
                     Administrator administrator = administratorRepository.findByUserLogin(login);
-                    userDTO = new AdministratorDTO(administrator.getName(),administrator.getLastName(),administrator.getFatherName(),
-                            administrator.getCabinet(),administrator.getEmail(),administrator.getPhoneNumber());
+                    userDTO = new AdministratorDTO(administrator.getName(), administrator.getLastName(),
+                            administrator.getFatherName(),
+                            administrator.getCabinet(), administrator.getEmail(), administrator.getPhoneNumber());
                     break;
                 default:
                     break;
@@ -70,6 +68,18 @@ public class UserService implements IUserService {
             userDTO.setRole(user.getRole());
         }
         return userDTO;
+    }
+
+    public List<AdministratorDTO> getAllAdministrators() {
+        List<Administrator> administrators = administratorRepository.findAll();
+        List<AdministratorDTO> administratorDTOs = new ArrayList<>();
+        administrators.stream().forEach(administrator -> administratorDTOs.add(new AdministratorDTO(administrator.getName(),
+                administrator.getLastName(), administrator.getFatherName(), administrator.getCabinet(),
+                administrator.getEmail(), administrator.getPhoneNumber())));
+        return administratorDTOs;
+    }
+
+    public void addUser(NewUserDTO user){
 
     }
 

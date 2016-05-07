@@ -9,6 +9,17 @@ app.factory('User', ['$resource', function($resource) {
             method: "GET",
             isArray: false,
             url: "/user/profile"
+        },
+
+        getAllAdministrators:{
+            method: "GET",
+            isArray: true,
+            url: "/user/admins"
+        },
+
+        addNewUser:{
+            method: "POST",
+            url:"/user/registration"
         }
     })
 }]);

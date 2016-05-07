@@ -9,4 +9,6 @@ app.controller('MainController', ['$scope', 'User', '$rootScope', function ($sco
     }, function (error) {
         delete $rootScope.user;
     });
+
+
 }]);

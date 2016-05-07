@@ -9,19 +9,19 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.security.Principal;
 import java.util.List;
-import java.util.Objects;
 
 /**
  * Created by Darya on 06.05.16.
  */
 @RestController
+@RequestMapping(value = "/tests")
 public class TestController {
 
     @Autowired
     private ITestService testService;
 
-    @RequestMapping(method = RequestMethod.GET, value = "/tests")
-    public List<TestDTO> getAllTests() {
+    @RequestMapping(method = RequestMethod.GET)
+    public List<TestDTO> getAll() {
         return testService.getAllTests();
     }
 

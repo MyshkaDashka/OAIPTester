@@ -1,11 +1,12 @@
 package by.home.controller;
 
+import by.home.dto.AdministratorDTO;
+import by.home.dto.NewUserDTO;
 import by.home.dto.UserDTO;
+import by.home.entity.User;
 import by.home.service.user.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
 import java.util.List;
@@ -34,5 +35,20 @@ public class UserController {
         }
         return user;
     }
+
+    @RequestMapping(method = RequestMethod.GET, value = "/admins")
+    public List<AdministratorDTO> getAllAdministrators(){
+        return userService.getAllAdministrators();
+    }
+
+    @RequestMapping(method = RequestMethod.POST, value = "/registration")
+    public
+    @ResponseBody
+    void addNewUser(@RequestBody NewUserDTO user){
+        userService.addUser(user);
+    }
+
+
+
 
 }
