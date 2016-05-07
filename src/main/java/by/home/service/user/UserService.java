@@ -105,8 +105,46 @@ public class UserService implements IUserService {
         return userRepository.save(newUser);
     }
 
+    @Transactional
     public void editUserInformation(NewUserDTO newUserDTO){
-
+        User user = userRepository.findByLogin(newUserDTO.getLogin());
+        if (Objects.nonNull(user)) {
+            switch (user.getRole()) {
+                case student:
+                    Student student = studentRepository.findByUserLogin(newUserDTO.getLogin());
+                    student.setLastName(newUserDTO.getLastName());
+                    student.setFatherName(newUserDTO.getFatherName());
+                    student.setName(newUserDTO.getName());
+                    student.setEmail(newUserDTO.getEmail());
+                    student.setGroup(newUserDTO.getGroup());
+                    student.setPhoneNumber(newUserDTO.getPhoneNumber());
+                    studentRepository.save(student);
+                    break;
+                case teacher:
+                    Teacher teacher = teacherRepository.findByUserLogin(newUserDTO.getLogin());
+                    teacher.setLastName(newUserDTO.getLastName());
+                    teacher.setName(newUserDTO.getName());
+                    teacher.setFatherName(newUserDTO.getFatherName());
+                    teacher.setEmail(newUserDTO.getEmail());
+                    teacher.setPhoneNumber(newUserDTO.getPhoneNumber());
+                    teacher.setCabinet(newUserDTO.getCabinet());
+                    teacher.setPosition(newUserDTO.getPosition());
+                    teacherRepository.save(teacher);
+                    break;
+                case admin:
+                    Administrator administrator = administratorRepository.findByUserLogin(newUserDTO.getLogin());
+                    administrator.setLastName(newUserDTO.getLastName());
+                    administrator.setName(newUserDTO.getName());
+                    administrator.setFatherName(newUserDTO.getFatherName());
+                    administrator.setPhoneNumber(newUserDTO.getPhoneNumber());
+                    administrator.setEmail(newUserDTO.getEmail());
+                    administrator.setCabinet(newUserDTO.getCabinet());
+                    administratorRepository.save(administrator);
+                    break;
+                default:
+                    break;
+            }
+        }
 
     }
 

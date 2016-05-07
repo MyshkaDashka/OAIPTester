@@ -1,4 +1,4 @@
-app.factory('User', ['$resource', function($resource) {
+app.factory('User', ['$resource', function ($resource) {
     return $resource('/user', {}, {
         getAll: {
             method: "GET",
@@ -11,15 +11,20 @@ app.factory('User', ['$resource', function($resource) {
             url: "/user/profile"
         },
 
-        getAllAdministrators:{
+        getAllAdministrators: {
             method: "GET",
             isArray: true,
             url: "/user/admins"
         },
 
-        addNewUser:{
+        addNewUser: {
             method: "POST",
-            url:"/user/registration"
+            url: "/user/registration"
+        },
+
+        editUserInformation: {
+            method: "POST",
+            url:"/user/edit"
         }
     })
 }]);

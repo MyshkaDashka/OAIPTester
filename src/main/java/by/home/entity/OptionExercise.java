@@ -29,6 +29,14 @@ public class OptionExercise {
     public OptionExercise() {
     }
 
+    public Exercise getExercise() {
+        return exercise;
+    }
+
+    public void setExercise(Exercise exercise) {
+        this.exercise = exercise;
+    }
+
     public Integer getId() {
         return id;
     }

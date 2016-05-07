@@ -38,6 +38,30 @@ public class User {
 
     }
 
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
+    }
+
+    public Administrator getAdministrator() {
+        return administrator;
+    }
+
+    public void setAdministrator(Administrator administrator) {
+        this.administrator = administrator;
+    }
+
+    public Teacher getTeacher() {
+        return teacher;
+    }
+
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
+    }
+
     public Integer getId() {
         return id;
     }

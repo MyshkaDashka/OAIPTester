@@ -43,6 +43,14 @@ public class Student {
     public Student() {
     }
 
+    public List<Report> getReportList() {
+        return reportList;
+    }
+
+    public void setReportList(List<Report> reportList) {
+        this.reportList = reportList;
+    }
+
     public User getUser() {
         return user;
     }

@@ -29,6 +29,22 @@ public class Exercise {
     public Exercise() {
     }
 
+    public Test getTest() {
+        return test;
+    }
+
+    public void setTest(Test test) {
+        this.test = test;
+    }
+
+    public List<OptionExercise> getOptions() {
+        return options;
+    }
+
+    public void setOptions(List<OptionExercise> options) {
+        this.options = options;
+    }
+
     public Integer getId() {
         return id;
     }

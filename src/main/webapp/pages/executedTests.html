@@ -8,11 +8,11 @@
                 <th>Полученная оценка</th>
                 <th>Количество попыток</th>
             </tr>
-            <tr>
-                <td>Операторы</td>
-                <td>06.05.2016</td>
-                <td>9</td>
-                <td>4</td>
+            <tr data-ng-repeat="report in reports">
+                <td>{{ report.testTitle }}</td>
+                <td>{{ report.lastAttemptDate }}</td>
+                <td>{{ report.mark }}</td>
+                <td>{{ report.attemptCount }}</td>
             </tr>
         </table>
     </div>

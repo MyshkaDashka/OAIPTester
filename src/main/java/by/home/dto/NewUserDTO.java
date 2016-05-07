@@ -27,8 +27,18 @@ public class NewUserDTO {
 
     private String position;
 
+    private String group;
+
     public NewUserDTO(){
 
+    }
+
+    public String getGroup() {
+        return group;
+    }
+
+    public void setGroup(String group) {
+        this.group = group;
     }
 
     public String getPhoneNumber() {

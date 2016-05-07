@@ -51,9 +51,10 @@ app.config(function ($stateProvider, $urlRouterProvider) {
             templateUrl: 'pages/tests.html',
             controller: "TestController"
         })
-        .state('executedTests', {
-            url: '/executedTests',
-            templateUrl: 'pages/executedTests.html'
+        .state('report', {
+            url: '/report',
+            templateUrl: 'pages/executedTests.html',
+            controller: "ReportController"
         })
 
 

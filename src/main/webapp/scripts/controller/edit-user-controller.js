@@ -1,12 +1,12 @@
-app.controller("EditUserController", ['$scope', 'User', '$state', function ($scope, User, $state) {
-    $scope.user = {};
-    $scope.saveEdit = function () {
-        User.saveEdit($scope.user, function(data) {
+app.controller("EditUserController", ['$scope', 'User', '$state','$rootScope', function ($scope, User, $state, $rootScope) {
+    $scope.user = $rootScope.user;
+    $scope.editUserInformation = function () {
+        User.editUserInformation($scope.user, function (data) {
             $state.go('profile');
         });
     }
 
-    $scope.cancel=function(){
+    $scope.cancel = function () {
         $state.go('profile');
     }
 }]);

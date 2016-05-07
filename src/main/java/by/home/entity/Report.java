@@ -61,4 +61,20 @@ public class Report {
     public void setAttemptCount(Integer attemptCount) {
         this.attemptCount = attemptCount;
     }
+
+    public Test getTest() {
+        return test;
+    }
+
+    public void setTest(Test test) {
+        this.test = test;
+    }
+
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
+    }
 }

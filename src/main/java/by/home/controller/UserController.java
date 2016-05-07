@@ -37,15 +37,19 @@ public class UserController {
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/admins")
-    public List<AdministratorDTO> getAllAdministrators(){
+    public List<AdministratorDTO> getAllAdministrators() {
         return userService.getAllAdministrators();
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/registration")
-    public void addNewUser(@RequestBody NewUserDTO newUserDTO){
-       userService.addUser(newUserDTO);
+    public void addNewUser(@RequestBody NewUserDTO newUserDTO) {
+        userService.addUser(newUserDTO);
     }
 
+    @RequestMapping(method = RequestMethod.POST, value = "/edit")
+    public void editUserInformation(@RequestBody NewUserDTO newUserDTO) {
+        userService.editUserInformation(newUserDTO);
+    }
 
 
 

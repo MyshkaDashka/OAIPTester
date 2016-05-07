@@ -27,6 +27,14 @@ public class Theory {
             inverseJoinColumns = @JoinColumn(name = "test_id"))
     private Set<Test> tests;
 
+    public Set<Test> getTests() {
+        return tests;
+    }
+
+    public void setTests(Set<Test> tests) {
+        this.tests = tests;
+    }
+
     public Integer getId() {
         return id;
     }

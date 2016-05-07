@@ -20,4 +20,6 @@ public interface IUserService {
     public List<AdministratorDTO> getAllAdministrators();
 
     public Student addUser(NewUserDTO newUserDTO);
+
+    public void editUserInformation(NewUserDTO newUserDTO);
 }

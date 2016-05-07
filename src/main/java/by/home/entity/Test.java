@@ -41,6 +41,30 @@ public class Test {
     public Test() {
     }
 
+    public List<Exercise> getExerciseList() {
+        return exerciseList;
+    }
+
+    public void setExerciseList(List<Exercise> exerciseList) {
+        this.exerciseList = exerciseList;
+    }
+
+    public List<Report> getReportList() {
+        return reportList;
+    }
+
+    public void setReportList(List<Report> reportList) {
+        this.reportList = reportList;
+    }
+
+    public Set<Theory> getTheories() {
+        return theories;
+    }
+
+    public void setTheories(Set<Theory> theories) {
+        this.theories = theories;
+    }
+
     public Integer getId() {
         return id;
     }
