@@ -10,17 +10,7 @@ app.controller('HomeController', ['$scope', 'User', '$rootScope', function ($sco
         delete $rootScope.user;
     });
 
-
-    //демонстрация секьюрити - вернёт результат только для админа, для остальных - вернёт ошибку
-    User.getAll(function (data) {
-        console.log(data);
-    }, function (error) {
-        console.log(error);
-    });
-
    User.getAllAdministrators(function(data){
-       $rootScope.admins = data;
-   }, function (error) {
-       delete $rootScope.admins;
+       $scope.admins = data;
    });
 }]);

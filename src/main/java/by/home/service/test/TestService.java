@@ -6,6 +6,7 @@ import by.home.repository.TestRepository;
 import by.home.service.test.ITestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +20,7 @@ public class TestService implements ITestService {
     @Autowired
     private TestRepository testRepository;
 
+    @Transactional
     public List<TestDTO> getAllTests() {
         List<Test> tests = testRepository.findAll();
         List<TestDTO> testDTOs = new ArrayList<>();

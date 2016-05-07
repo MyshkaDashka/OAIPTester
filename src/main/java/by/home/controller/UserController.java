@@ -42,10 +42,8 @@ public class UserController {
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/registration")
-    public
-    @ResponseBody
-    void addNewUser(@RequestBody NewUserDTO user){
-        userService.addUser(user);
+    public void addNewUser(@RequestBody NewUserDTO newUserDTO){
+       userService.addUser(newUserDTO);
     }
 
 

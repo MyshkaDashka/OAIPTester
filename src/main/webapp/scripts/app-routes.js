@@ -43,7 +43,8 @@ app.config(function ($stateProvider, $urlRouterProvider) {
 
         .state('edit', {
             url: '/edit',
-            templateUrl: 'pages/editProfile.html'
+            templateUrl: 'pages/editProfile.html',
+            controller: 'EditUserController'
         })
         .state('tests', {
             url: '/tests',

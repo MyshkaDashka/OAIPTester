@@ -21,8 +21,38 @@ public class NewUserDTO {
 
     private String fatherName;
 
+    private String phoneNumber;
+
+    private String cabinet;
+
+    private String position;
+
     public NewUserDTO(){
 
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getCabinet() {
+        return cabinet;
+    }
+
+    public void setCabinet(String cabinet) {
+        this.cabinet = cabinet;
+    }
+
+    public String getPosition() {
+        return position;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
     }
 
     public String getLogin() {

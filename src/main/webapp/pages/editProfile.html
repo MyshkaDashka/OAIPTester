@@ -13,37 +13,37 @@
                                 <tr>
                                     <td> Фамилия</td>
                                     <td>
-                                        <input type="text" class="form-control" value="{{ user.lastName }}">
+                                        <input type="text" class="form-control" value="{{ user.lastName }}" ng-model="user.lastName">
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>Имя</td>
                                     <td>
-                                        <input type="text" class="form-control" value="{{ user.name }}"></td>
+                                        <input type="text" class="form-control" value="{{ user.name }}" ng-model="user.name"></td>
                                 </tr>
                                 <tr>
                                     <td>Отчество</td>
                                     <td>
-                                        <input type="text" class="form-control" value="{{ user.fatherName }}"></td>
+                                        <input type="text" class="form-control" value="{{ user.fatherName }}" ng-model="user.fatherName"></td>
                                 </tr>
                                 <tr ng-if="user.role == 'student'">
                                     <td>Группа</td>
-                                    <td><input type="text" class="form-control" value="{{ user.group }}"></td>
+                                    <td><input type="text" class="form-control" value="{{ user.group }}" ng-model="user.group"></td>
                                 </tr>
                                 <tr ng-if="user.role == 'teacher' || user.role == 'admin'">
                                     <td>Кабинет</td>
-                                    <td><input type="text" class="form-control" value="{{ user.cabinet }}"></td>
+                                    <td><input type="text" class="form-control" value="{{ user.cabinet }}" ng-model="user.cabinet"></td>
                                 </tr>
                                 <tr ng-if="user.role == 'teacher'">
                                     <td>Должность</td>
-                                    <td><input type="text" class="form-control" value="{{ user.position }}"></td>
+                                    <td><input type="text" class="form-control" value="{{ user.position }}" ng-model="user.position"></td>
                                 </tr>
                                 <tr>
                                     <td>Email</td>
-                                    <td><input type="text" class="form-control" value="{{ user.email }}"></td>
+                                    <td><input type="text" class="form-control" value="{{ user.email }}" ng-model="user.email"></td>
                                 </tr>
                                 <td>Номер телефона</td>
-                                <td><input type="text" class="form-control" value="{{ user.phoneNumber }}"></td>
+                                <td><input type="text" class="form-control" value="{{ user.phoneNumber }}" ng-model="user.phoneNumber"></td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -52,8 +52,8 @@
                 </div>
                 <div class="panel-footer">
                     <div class="text-right ">
-                        <a href="#/profile" class="btn btn-primary btn-sm" role="button">Сохранить</a>
-                        <a href="#/profile" class="btn btn-default btn-sm" role="button">Отмена</a></div>
+                        <button class="btn btn-primary btn-sm" role="button" ng-click="saveEdit()">Сохранить</button>
+                        <button class="btn btn-default btn-sm" role="button" ng-clich="cancel()">Отмена</button></div>
                 </div>
             </div>
         </div>

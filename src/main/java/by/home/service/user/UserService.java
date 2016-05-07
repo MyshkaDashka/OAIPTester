@@ -2,6 +2,7 @@ package by.home.service.user;
 
 import by.home.dto.*;
 import by.home.entity.*;
+import by.home.enums.Role;
 import by.home.repository.AdministratorRepository;
 import by.home.repository.StudentRepository;
 import by.home.repository.TeacherRepository;
@@ -9,6 +10,7 @@ import by.home.repository.UserRepository;
 import by.home.service.user.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,6 +35,7 @@ public class UserService implements IUserService {
     @Autowired
     private TeacherRepository teacherRepository;
 
+    @Transactional
     public List<UserDTO> getAll() {
         List<User> users = userRepository.findAll();
         List<UserDTO> userDTOs = new ArrayList<>();
@@ -40,6 +43,7 @@ public class UserService implements IUserService {
         return userDTOs;
     }
 
+    @Transactional
     public UserDTO getUserInformation(String login) {
         UserDTO userDTO = null;
         User user = userRepository.findByLogin(login);
@@ -70,6 +74,7 @@ public class UserService implements IUserService {
         return userDTO;
     }
 
+    @Transactional
     public List<AdministratorDTO> getAllAdministrators() {
         List<Administrator> administrators = administratorRepository.findAll();
         List<AdministratorDTO> administratorDTOs = new ArrayList<>();
@@ -79,7 +84,29 @@ public class UserService implements IUserService {
         return administratorDTOs;
     }
 
-    public void addUser(NewUserDTO user){
+
+    @Transactional
+    public Student addUser(NewUserDTO newUserDTO){
+        Student student = new Student();
+        student.setUser(saveUser(newUserDTO.getLogin(), newUserDTO.getPassword()));
+        student.setEmail(newUserDTO.getEmail());
+        student.setName(newUserDTO.getName());
+        student.setFatherName(newUserDTO.getFatherName());
+        student.setLastName(newUserDTO.getLastName());
+        return studentRepository.save(student);
+    }
+
+    @Transactional
+    private User saveUser(String login, String password){
+        User newUser = new User();
+        newUser.setLogin(login);
+        newUser.setPassword(password);
+        newUser.setRole(Role.student);
+        return userRepository.save(newUser);
+    }
+
+    public void editUserInformation(NewUserDTO newUserDTO){
+
 
     }
 

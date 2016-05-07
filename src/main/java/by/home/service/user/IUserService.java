@@ -19,5 +19,5 @@ public interface IUserService {
 
     public List<AdministratorDTO> getAllAdministrators();
 
-    public void addUser(NewUserDTO user);
+    public Student addUser(NewUserDTO newUserDTO);
 }
