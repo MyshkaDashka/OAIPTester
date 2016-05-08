@@ -4,5 +4,4 @@ app.controller('TestController', ['$scope', 'Test', '$rootScope', function ($sco
     }, function (error) {
         delete $rootScope.tests;
     });
-
 }]);

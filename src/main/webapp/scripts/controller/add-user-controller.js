@@ -4,9 +4,9 @@ app.controller("AddUserController", ['$scope', 'User', '$state', function ($scop
         User.addNewUser($scope.user, function(data) {
             $state.go('signin');
         });
-    }
+    };
 
     $scope.cancel=function(){
         $state.go('signin');
-    }
+    };
 }]);

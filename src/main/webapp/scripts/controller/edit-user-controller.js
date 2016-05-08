@@ -4,9 +4,9 @@ app.controller("EditUserController", ['$scope', 'User', '$state','$rootScope', f
         User.editUserInformation($scope.user, function (data) {
             $state.go('profile');
         });
-    }
+    };
 
     $scope.cancel = function () {
         $state.go('profile');
-    }
+    };
 }]);
