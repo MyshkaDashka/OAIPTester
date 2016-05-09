@@ -1,5 +1,14 @@
+<div class="jumbotron" ng-show="user">
+    <div class="container">
+        <p>Для прохождения теста нажмите кнопку "Начать тестирование"</p>
+    </div>
+</div>
+<div class="jumbotron" ng-show="!user">
+    <div class="container">
+        <p>Для прохождения теста небходимо <a ui-sref="signin">Войти или зарегистрироваться</a></p>
+    </div>
+</div>
 <div class="container">
-    <h2><p ng-show="!user"><a ui-sref="signin">Для прохождения теста небходимо Войти или зарегистрироваться</a></p></h2>
     <div class="panel panel-default">
         <div class="panel-heading">Тесты</div>
         <table class="table">
@@ -7,11 +16,13 @@
                 <th>Название теста</th>
                 <th>Дата создания</th>
                 <th>Дата обновления</th>
+                <th></th>
             </tr>
             <tr data-ng-repeat="test in tests">
                 <td>{{ test.title }}</td>
                 <td>{{ test.createDate }}</td>
                 <td>{{ test.updateDate }}</td>
+                <td ng-show="user"><button class="btn btn-primary btn-sm" role="button" ng-click="runTest(test)">Начать тестирование</button></td>
             </tr>
         </table>
     </div>

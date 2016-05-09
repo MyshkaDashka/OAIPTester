@@ -24,7 +24,7 @@ public class TestService implements ITestService {
     public List<TestDTO> getAllTests() {
         List<Test> tests = testRepository.findAll();
         List<TestDTO> testDTOs = new ArrayList<>();
-        tests.stream().forEach(t -> testDTOs.add(new TestDTO(t.getTitle(),t.getCreateDate(),t.getUpdateDate())));
+        tests.stream().forEach(t -> testDTOs.add(new TestDTO(t.getId(), t.getTitle(), t.getCreateDate(), t.getUpdateDate())));
         return testDTOs;
     }
 }

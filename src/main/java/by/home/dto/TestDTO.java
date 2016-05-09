@@ -6,6 +6,7 @@ import java.sql.Date;
  * Created by Darya on 06.05.16.
  */
 public class TestDTO {
+    private Integer id;
     private String title;
     private Date createDate;
     private Date updateDate;
@@ -13,10 +14,19 @@ public class TestDTO {
     public TestDTO() {
     }
 
-    public TestDTO(String title, Date createDate, Date updateDate) {
+    public TestDTO(Integer id, String title, Date createDate, Date updateDate) {
+        this.id = id;
         this.title = title;
         this.createDate = createDate;
         this.updateDate = updateDate;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getTitle() {
