@@ -26,5 +26,6 @@ app.factory('User', ['$resource', function ($resource) {
             method: "POST",
             url:"/user/edit"
         }
+
     })
 }]);

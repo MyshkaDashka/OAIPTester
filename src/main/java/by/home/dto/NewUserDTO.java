@@ -29,8 +29,18 @@ public class NewUserDTO {
 
     private String group;
 
-    public NewUserDTO(){
+    public NewUserDTO() {
 
+    }
+
+    public NewUserDTO(String login, String password, String lastName, String name, String fatherName, Role role, String email) {
+        this.login = login;
+        this.password = password;
+        this.lastName = lastName;
+        this.name = name;
+        this.fatherName = fatherName;
+        this.role = role;
+        this.email = email;
     }
 
     public String getGroup() {

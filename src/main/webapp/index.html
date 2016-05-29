@@ -21,6 +21,7 @@
     <script src="scripts/controller/add-user-controller.js"></script>
     <script src="scripts/controller/edit-user-controller.js"></script>
     <script src="scripts/controller/report-user-controller.js"></script>
+    <script src="scripts/controller/all-users-controller.js"></script>
     <script src="scripts/resource/user-resource.js"></script>
     <script src="scripts/resource/test-resource.js"></script>
     <script src="scripts/resource/report-resource.js"></script>
@@ -33,10 +34,13 @@
             <div class="navbar-header titleName">
                 <a class="navbar-brand" href="#">Основы алгоритмизации и программирования</a>
             </div>
-
             <ul class="nav navbar-nav navbar-right">
                 <li ng-show="user"><a ui-sref="profile"><i class="fa fa-home"></i> Профиль</a></li>
+                <!--<li ng-show="user"><a ui-sref="testExecute"><i class="fa fa-home"></i> Страница теста</a></li>-->
+                <!--<li ng-show="user"><a ui-sref="reportForTest"><i class="fa fa-home"></i> Страница отчета</a></li>-->
+                <li  ng-if="user.role == 'admin'"><a ui-sref="users"><i class="fa fa-home"></i> Пользователи</a></li>
                 <li><a ui-sref="tests"><i class="fa fa-graduation-cap"></i> Тесты</a></li>
+                <li><a ui-sref="registrationSuccess"><i class="fa fa-graduation-cap"></i> Теория</a></li>
                 <li><a ui-sref="about"><i class="fa fa-shield"></i> О программе</a></li>
                 <li><a ui-sref="contact"><i class="fa fa-comment"></i> Обратная связь</a></li>
                 <li ng-show="!user"><a ui-sref="signin"><i class="fa fa-sign-in"></i> Войти</a></li>

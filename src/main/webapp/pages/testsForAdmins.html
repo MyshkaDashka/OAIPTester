@@ -1,0 +1,34 @@
+<div class="jumbotron" ng-show="user">
+    <div class="container">
+        <p>Для добавления нового теста нажмите кнопку <a class="btn btn-primary btn-lg" href="#/registration"
+                                                         role="button">Добавить тест</a></p>
+    </div>
+</div>
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-heading">Тесты</div>
+        <table class="table">
+            <tr>
+                <th>Название теста</th>
+                <th>Дата создания</th>
+                <th>Дата обновления</th>
+                <th></th>
+                <th></th>
+            </tr>
+            <tr data-ng-repeat="test in tests">
+                <td>{{ test.title }}</td>
+                <td>{{ test.createDate }}</td>
+                <td>{{ test.updateDate }}</td>
+                <td ng-show="user">
+                    <button class="btn btn-primary btn-sm" role="button" ng-click="runTest(test)">Редактировать тест
+                    </button>
+                </td>
+                <td ng-show="user">
+                    <button class="btn btn-primary btn-sm btn-danger" role="button" ng-click="runTest(test)">Удалить
+                        тест
+                    </button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

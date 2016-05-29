@@ -23,7 +23,7 @@ public class UserController {
     private IUserService userService;
 
     @RequestMapping(method = RequestMethod.GET)
-    public List<UserDTO> getAll() {
+    public List<NewUserDTO> getAll() {
         return userService.getAll();
     }
 
@@ -50,7 +50,5 @@ public class UserController {
     public void editUserInformation(@RequestBody NewUserDTO newUserDTO) {
         userService.editUserInformation(newUserDTO);
     }
-
-
 
 }

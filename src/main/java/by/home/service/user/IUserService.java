@@ -13,7 +13,7 @@ import java.util.List;
  */
 public interface IUserService {
 
-    public List<UserDTO> getAll();
+    public List<NewUserDTO> getAll();
 
     public UserDTO getUserInformation(String login);
 

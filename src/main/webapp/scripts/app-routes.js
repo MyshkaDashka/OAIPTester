@@ -31,10 +31,12 @@ app.config(function ($stateProvider, $urlRouterProvider) {
             url: '/signin',
             templateUrl: 'pages/signin.html'
         })
+
         .state('signout', {
             url: '/signout',
             templateUrl: 'pages/signout.html'
         })
+
         .state('registration', {
             url: '/registration',
             templateUrl: 'pages/registration.html',
@@ -46,18 +48,54 @@ app.config(function ($stateProvider, $urlRouterProvider) {
             templateUrl: 'pages/editProfile.html',
             controller: 'EditUserController'
         })
+
+        //.state('tests', {
+        //    url: '/tests',
+        //    templateUrl: 'pages/tests.html',
+        //    controller: "TestController"
+        //})
+
         .state('tests', {
             url: '/tests',
-            templateUrl: 'pages/tests.html',
+            templateUrl: 'pages/testsForAdmins.html',
             controller: "TestController"
         })
+
         .state('report', {
             url: '/report',
             templateUrl: 'pages/executedTests.html',
             controller: "ReportController"
         })
+
         .state('test', {
             url: '/test',
             templateUrl: 'pages/test.html'
         })
+
+        .state('users', {
+            url: '/users',
+            templateUrl: 'pages/users.html',
+            controller: "AllUsersController"
+        })
+
+        .state('registrationSuccess', {
+            url: '/registrationSuccess',
+            templateUrl: 'pages/registrationSuccess.html'
+        })
+
+        .state('testExecute', {
+            url: '/testExecute',
+            templateUrl: 'pages/testExecute.html'
+        })
+
+        .state('reportForTest', {
+            url: '/reportForTest',
+            templateUrl: 'pages/report.html'
+        })
+
+        .state('theory', {
+            url: '/theory',
+            templateUrl: 'pages/theory.html'
+        })
+
 });

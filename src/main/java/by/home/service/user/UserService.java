@@ -11,6 +11,7 @@ import by.home.service.user.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,11 +37,105 @@ public class UserService implements IUserService {
     private TeacherRepository teacherRepository;
 
     @Transactional
-    public List<UserDTO> getAll() {
+    public List<NewUserDTO> getAll() {
         List<User> users = userRepository.findAll();
-        List<UserDTO> userDTOs = new ArrayList<>();
-        users.stream().forEach(u -> userDTOs.add(new UserDTO(u.getLogin(), u.getRole())));
+        List<NewUserDTO> userDTOs = new ArrayList<>();
+        users.stream().forEach(u -> userDTOs.add(new NewUserDTO(u.getLogin(),
+                u.getPassword(), getLastNameUser(u), getNameUser(u), getFatherNameUser(u),
+                u.getRole(), getEmailUser(u))));
         return userDTOs;
+    }
+
+    private String getNameUser(User user) {
+        StringBuilder name = new StringBuilder();
+        if (Objects.nonNull(user)) {
+            switch (user.getRole()) {
+                case student:
+                    Student student = studentRepository.findByUserLogin(user.getLogin());
+                    name.append(student.getName());
+                    break;
+                case teacher:
+                    Teacher teacher = teacherRepository.findByUserLogin(user.getLogin());
+                    name.append(teacher.getName());
+                    break;
+                case admin:
+                    Administrator administrator = administratorRepository.findByUserLogin(user.getLogin());
+                    name.append(administrator.getName());
+                    break;
+                default:
+                    break;
+            }
+        }
+        return name.toString();
+    }
+
+    private String getLastNameUser(User user) {
+        StringBuilder name = new StringBuilder();
+        if (Objects.nonNull(user)) {
+            switch (user.getRole()) {
+                case student:
+                    Student student = studentRepository.findByUserLogin(user.getLogin());
+                    name.append(student.getLastName());
+                    break;
+                case teacher:
+                    Teacher teacher = teacherRepository.findByUserLogin(user.getLogin());
+                    name.append(teacher.getLastName());
+                    break;
+                case admin:
+                    Administrator administrator = administratorRepository.findByUserLogin(user.getLogin());
+                    name.append(administrator.getLastName());
+                    break;
+                default:
+                    break;
+            }
+        }
+        return name.toString();
+    }
+
+    private String getFatherNameUser(User user) {
+        StringBuilder name = new StringBuilder();
+        if (Objects.nonNull(user)) {
+            switch (user.getRole()) {
+                case student:
+                    Student student = studentRepository.findByUserLogin(user.getLogin());
+                    name.append(student.getFatherName());
+                    break;
+                case teacher:
+                    Teacher teacher = teacherRepository.findByUserLogin(user.getLogin());
+                    name.append(teacher.getFatherName());
+                    break;
+                case admin:
+                    Administrator administrator = administratorRepository.findByUserLogin(user.getLogin());
+                    name.append(administrator.getFatherName());
+                    break;
+                default:
+                    break;
+            }
+        }
+        return name.toString();
+    }
+
+    private String getEmailUser(User user) {
+        StringBuilder email = new StringBuilder();
+        if (Objects.nonNull(user)) {
+            switch (user.getRole()) {
+                case student:
+                    Student student = studentRepository.findByUserLogin(user.getLogin());
+                    email.append(student.getEmail());
+                    break;
+                case teacher:
+                    Teacher teacher = teacherRepository.findByUserLogin(user.getLogin());
+                    email.append(teacher.getEmail());
+                    break;
+                case admin:
+                    Administrator administrator = administratorRepository.findByUserLogin(user.getLogin());
+                    email.append(administrator.getEmail());
+                    break;
+                default:
+                    break;
+            }
+        }
+        return email.toString();
     }
 
     @Transactional
@@ -86,7 +181,7 @@ public class UserService implements IUserService {
 
 
     @Transactional
-    public Student addUser(NewUserDTO newUserDTO){
+    public Student addUser(NewUserDTO newUserDTO) {
         Student student = new Student();
         student.setUser(saveUser(newUserDTO.getLogin(), newUserDTO.getPassword()));
         student.setEmail(newUserDTO.getEmail());
@@ -97,7 +192,7 @@ public class UserService implements IUserService {
     }
 
     @Transactional
-    private User saveUser(String login, String password){
+    private User saveUser(String login, String password) {
         User newUser = new User();
         newUser.setLogin(login);
         newUser.setPassword(password);
@@ -106,7 +201,7 @@ public class UserService implements IUserService {
     }
 
     @Transactional
-    public void editUserInformation(NewUserDTO newUserDTO){
+    public void editUserInformation(NewUserDTO newUserDTO) {
         User user = userRepository.findByLogin(newUserDTO.getLogin());
         if (Objects.nonNull(user)) {
             switch (user.getRole()) {
